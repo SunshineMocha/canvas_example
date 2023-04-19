@@ -6,7 +6,7 @@ const ctx = myCanvas.getContext('2d'); // Prendo un contesto: 2d per 2D, WebGL p
 
 // QUESTE DUE LINEE SOPRA SARANNO SEMPRE PRESENTI
 
-ctx.fillRect(20,20,50,60);
+//ctx.fillRect(20,20,50,60);
 
 
 for (let i = 0; i < 100; i++) {
@@ -14,6 +14,12 @@ for (let i = 0; i < 100; i++) {
     const originY = Math.random() * 600;
     const width = Math.random() * 100;
     const height = Math.random() * 100;
+
+    let r = Math.floor(Math.random()*255);
+    let g = Math.floor(Math.random()*255);
+    let b = Math.floor(Math.random()*255);
+
+    ctx.fillStyle = `rgb(${r},${g},${b})`;
 
     ctx.fillRect(originX, originY, width, height);
 }
