@@ -1,25 +1,50 @@
-console.log("HEY");
+const myCanvas = document.getElementById('my-canvas');
+const ctx = myCanvas.getContext('2d');
 
-const myCanvas = document.getElementById('my-canvas'); // Mi chiamo il mio canvas
+// const point = {
+//     x: 300,
+//     y: 300
+// }
 
-const ctx = myCanvas.getContext('2d'); // Prendo un contesto: 2d per 2D, WebGL per 3D
+// setInterval(() => { // Animazione del punto
+//     ctx.fillStyle = "red"
+//     ctx.fillRect(point.x, point.y, 2, 2);
+//     point.y += 1;
+// }, 0);
 
-// QUESTE DUE LINEE SOPRA SARANNO SEMPRE PRESENTI
 
-//ctx.fillRect(20,20,50,60);
+// ma se voglio farla andare in una direzione casuale?
 
+// setInterval(() => { // Animazione del punto
+//     const rndX = (Math.random()*4)-2;
+//     const rndY = (Math.random()*4)-2;
+//     ctx.fillStyle = "red"
+//     ctx.fillRect(point.x, point.y, 2, 2);
+//     point.x += rndX;
+//     point.y += rndY;
+// }, 0);
 
-for (let i = 0; i < 100; i++) {
-    const originX = Math.random() * 600;
-    const originY = Math.random() * 600;
-    const width = Math.random() * 100;
-    const height = Math.random() * 100;
+for (let i = 0; i < 100; i++) { // animo un punto, lo stampo piu volte in posizioni diverse e in colori diversi
+    let r = Math.floor(Math.random()*256);
+    let g = Math.floor(Math.random()*256);
+    let b = Math.floor(Math.random()*256);
+    
 
-    let r = Math.floor(Math.random()*255);
-    let g = Math.floor(Math.random()*255);
-    let b = Math.floor(Math.random()*255);
+    const point = {
+        x: 300,
+        y: 300
+    }
 
-    ctx.fillStyle = `rgb(${r},${g},${b})`;
+    point.color = `rgba(${r},${g},${b})`;
 
-    ctx.fillRect(originX, originY, width, height);
+    setInterval(() => { // Animazione del punto
+        const rndX = (Math.random()*4)-2;
+        const rndY = (Math.random()*4)-2;
+        ctx.fillStyle = point.color;
+        ctx.fillRect(point.x, point.y, 2, 2);
+        point.x += rndX;
+        point.y += rndY;
+    }, 0);
+    
+
 }
